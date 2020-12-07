@@ -25,7 +25,11 @@
 #include "image.h"
 #include "config.h"
 
-#include <emmintrin.h>			// Intel aligned malloc and free
+#ifdef __x86_64__
+    #include <emmintrin.h>             // SSE2 intrinsics
+#else
+    #include "sse2neon.h"
+#endif
 
 #include <memory.h>				// Get definition of memset
 

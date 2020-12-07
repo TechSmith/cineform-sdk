@@ -32,7 +32,12 @@
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
-//#include <emmintrin.h>		// SSE2 intrinsics
+#ifdef __x86_64__
+    #include <emmintrin.h>             // SSE2 intrinsics
+#else
+    #include "sse2neon.h"
+#endif
+
 
 #ifdef _WIN32
 #include <windows.h>

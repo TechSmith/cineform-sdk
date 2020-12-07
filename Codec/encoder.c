@@ -34,7 +34,11 @@
 #include <assert.h>
 #include <memory.h>
 
-#include <emmintrin.h>
+#ifdef __x86_64__
+    #include <emmintrin.h>             // SSE2 intrinsics
+#else
+    #include "sse2neon.h"
+#endif
 
 #include "dump.h"
 #include "encoder.h"

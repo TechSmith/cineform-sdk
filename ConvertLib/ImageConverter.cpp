@@ -40,7 +40,11 @@
 #endif
 
 #if XMMOPT
-#include <emmintrin.h>				// Include support for SSE2 intrinsics
+    #ifdef __x86_64__
+        #include <emmintrin.h>             // SSE2 intrinsics
+    #else
+        #include "sse2neon.h"
+    #endif
 #endif
 
 #ifdef DEBUG

@@ -22,7 +22,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
-#include <emmintrin.h>		// SSE2 intrinsics, _mm_malloc
+#ifdef __x86_64__
+    #include <emmintrin.h>             // SSE2 intrinsics
+#else
+    #include "sse2neon.h"
+#endif
 #ifdef __APPLE__
 #include <sys/time.h>
 #else
