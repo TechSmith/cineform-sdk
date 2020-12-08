@@ -29,7 +29,7 @@
 #ifdef __x86_64__
     #include <emmintrin.h>             // SSE2 intrinsics
 #else
-    #include "sse2neon.h"
+    #include "sse2neon/sse2neon.h"
 #endif
 
 // The codec SDK and the codec library use the same memory allocator

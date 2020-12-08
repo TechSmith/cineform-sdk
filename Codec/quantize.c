@@ -38,7 +38,7 @@
     #include <mmintrin.h>        // MMX intrinsics
     #include <emmintrin.h>             // SSE2 intrinsics
 #else
-    #include "sse2neon.h"
+    #include "sse2neon/sse2neon.h"
 #endif
 #include "quantize.h"
 #include "filter.h"
