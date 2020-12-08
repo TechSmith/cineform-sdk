@@ -32,7 +32,11 @@
 #include <memory.h>
 #include <assert.h>
 #include <limits.h>
-#include <emmintrin.h>
+#ifdef __x86_64__
+    #include <emmintrin.h>             // SSE2 intrinsics
+#else
+    #include "sse2neon/sse2neon.h"
+#endif
 #include <math.h>
 #if __APPLE__
 #include <dlfcn.h>

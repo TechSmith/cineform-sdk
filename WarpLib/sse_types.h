@@ -22,7 +22,11 @@
 #ifndef SSE_TYPES_H
 #define SSE_TYPES_H
 
-#include "emmintrin.h"
+#ifdef __x86_64__
+    #include <emmintrin.h>             // SSE2 intrinsics
+#else
+    #include "sse2neon/sse2neon.h"
+#endif
 
 typedef union
 {

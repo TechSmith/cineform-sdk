@@ -24,7 +24,12 @@
 #include <string.h>
 #include <assert.h>
 #include <math.h>
-#include <emmintrin.h>		// SSE2 intrinsics
+#ifdef __x86_64__
+    #include <emmintrin.h>             // SSE2 intrinsics
+#else
+    #include "sse2neon/sse2neon.h"
+#endif
+
 #include "config.h"
 #include "frame.h"
 #include "wavelet.h"

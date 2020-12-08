@@ -28,7 +28,11 @@
 #include "macdefs.h"
 #endif
 
-#include <emmintrin.h>		// SSE2 intrinsics
+#ifdef __x86_64__
+    #include <emmintrin.h>             // SSE2 intrinsics
+#else
+    #include "sse2neon/sse2neon.h"
+#endif
 
 #ifndef DEBUG
 #define DEBUG  (1 && _DEBUG)

@@ -31,7 +31,11 @@
 #define TIMING (1 && _TIMING)
 #define XMMOPT (1 && _XMMOPT)
 
-#include <emmintrin.h>
+#ifdef __x86_64__
+    #include <emmintrin.h>             // SSE2 intrinsics
+#else
+    #include "sse2neon/sse2neon.h"
+#endif
 
 #if (DEBUG && _WIN32)
 #include <tchar.h>		// For printing debug string in the console window

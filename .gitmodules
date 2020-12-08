@@ -1,0 +1,3 @@
+[submodule "Codec/sse2neon"]
+	path = Codec/sse2neon
+	url = https://github.com/TechSmith/sse2neon.git

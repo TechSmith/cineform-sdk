@@ -39,7 +39,11 @@
 #include <memory.h>
 #include <assert.h>
 #include <limits.h>
-#include <emmintrin.h>
+#ifdef __x86_64__
+    #include <emmintrin.h>             // SSE2 intrinsics
+#else
+    #include "sse2neon/sse2neon.h"
+#endif
 
 #include "image.h"
 //#include "ipp.h"		// Use Intel Performance Primitives

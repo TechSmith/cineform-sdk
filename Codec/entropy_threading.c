@@ -40,7 +40,11 @@
 
 #include <stdio.h>
 #include <assert.h>
-#include <emmintrin.h>			// Intel aligned alloc and free
+#ifdef __x86_64__
+    #include <emmintrin.h>             // SSE2 intrinsics
+#else
+    #include "sse2neon/sse2neon.h"
+#endif
 
 #include "config.h"
 #include "dump.h"

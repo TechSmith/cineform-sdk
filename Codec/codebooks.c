@@ -24,7 +24,11 @@
 #endif
 
 #include <assert.h>
-#include <emmintrin.h>
+#ifdef __x86_64__
+    #include <emmintrin.h>             // SSE2 intrinsics
+#else
+    #include "sse2neon/sse2neon.h"
+#endif
 #include "codebooks.h"
 #include "codec.h"
 #include "vlc.h"

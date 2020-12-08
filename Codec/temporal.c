@@ -31,7 +31,11 @@
 
 #include <assert.h>
 #include <limits.h>
-#include <emmintrin.h>		// SSE2 intrinsics
+#ifdef __x86_64__
+    #include <emmintrin.h>             // SSE2 intrinsics
+#else
+    #include "sse2neon/sse2neon.h"
+#endif
 
 #include "temporal.h"
 #include "filter.h"			// Declarations of filter routines
